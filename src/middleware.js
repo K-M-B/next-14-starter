@@ -2,13 +2,13 @@
 import { NextResponse } from 'next/server'
 
 export function middleware(req) {
-  console.log('Middleware HIT:', req.url)
+  //console.log('Middleware HIT:', req.url)
 
   const hostname = req.headers.get('host') || ''
-  console.log('Host:', hostname);
+  //console.log('Host:', hostname);
   const subdomainMatch = hostname.match(/^([^.]+)\./)
   const subdomain = subdomainMatch ? subdomainMatch[1] : 'default'
-  console.log('subdomain', subdomain);
+  //console.log('subdomain', subdomain);
 
   let response
 
@@ -51,7 +51,7 @@ export function middleware(req) {
   }
 
   response.headers.set('Vary', 'Cookie')
-  console.log('response', response);
+  //console.log('response', response);
   return response
 }
 
